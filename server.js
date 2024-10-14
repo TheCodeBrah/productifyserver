@@ -9,6 +9,7 @@ const passport = require("passport");
 const auth = require('./Routers/authRouter')
 const oauth = require('./Routers/oauth.js')
 const calendar = require('./Routers/calendarRouter')
+const tasks = require('./Routers/taskRouter.js')
 const dotenv = require('dotenv')
 dotenv.config()
 require('./Strategies/auth.js')
@@ -26,6 +27,7 @@ app.use(passport.session())
 app.use('/api/auth', auth)
 app.use('/api/oauth', oauth)
 app.use('/api/calendar', calendar)
+app.use('/api/tasks', tasks)
 
 mongoose.connect("mongodb://localhost:27017/productify").then(() => {
   console.log("connected to db");
